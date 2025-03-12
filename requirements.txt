@@ -7,5 +7,5 @@ seaborn
 tensorflow
 keras-visualizer
 ydata_profiling
-IPython
 cv2
+IPython
