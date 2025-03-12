@@ -286,15 +286,15 @@ with  tab4:
 
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
-        st.image(image, caption="📸 Uploaded Image", use_column_width=True)
+        st.image(image, caption="📸 Uploaded Image", use_container_width=True)
 
-        # 🔍 พรีโปรเซสภาพ
+        #  พรีโปรเซสภาพ
         img_input = preprocess_image(image)
 
-        # 🔥 ทำนายอายุ
+        #  ทำนายอายุ
         age_pred = model.predict(img_input)[0][0]  # ใช้ [0][0] เพราะ output เป็น single value
 
-        # 🎯 แสดงผลลัพธ์
+        #  แสดงผลลัพธ์
         st.write(f"🔢 **Predicted Age:** {int(age_pred)} years")
 
     
