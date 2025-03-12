@@ -93,8 +93,7 @@ with tab1:
 
 # Cleansing Data KNN & SVM
 
-file_path1 = "C:\\Users\\Admin\\Downloads\\workout_fitness_tracker_data.csv"
-df1 = pd.read_csv(file_path1)
+
 
 blood_pressure_avg = df2["BloodPressure"].mean()
 ExerciseHours_avg = df2["ExerciseHours"].mean()
