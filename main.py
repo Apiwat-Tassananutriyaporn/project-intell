@@ -18,7 +18,6 @@ from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.optimizers import Adam
 
 import os
-import cv2
 from tensorflow.keras.utils import to_categorical
 from keras import layers, models
 
