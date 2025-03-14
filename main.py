@@ -129,7 +129,7 @@ with tab3:
     st.title("🎯 KNN & SVM Model") 
     
 
-    file_path = "health_MachineLearning.csv"
+    file_path = "health_dataset_MachineLearning.csv"
     df = pd.read_csv(file_path)
 
     for col in ["BMI", "BloodPressure", "Cholesterol", "ExerciseHours"]:
