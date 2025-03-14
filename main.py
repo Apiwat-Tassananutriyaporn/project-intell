@@ -280,8 +280,8 @@ with  tab4:
 
     st.title("🎯 Multitask CNN: Age Prediction")
 
-    # 📤 Upload image
-    # uploaded_file = st.file_uploader("📂 Upload an image", type=["jpg", "png"])
+    #  Upload image
+    
     uploaded_file = st.file_uploader("📂 Upload an Image", type=["jpg", "png", "jpeg"])
 
     if uploaded_file is not None:
