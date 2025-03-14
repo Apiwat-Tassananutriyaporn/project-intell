@@ -27,7 +27,7 @@ from PIL import Image
 
 st.title("Intelligent System")
 
-file_path2 = "health_MachineLearning.csv"
+file_path2 = "health_dataset_MachineLearning.csv"
 df2 = pd.read_csv(file_path2)
 
 # Insert containers separated into tabs:
