@@ -157,8 +157,6 @@ with tab3:
     # Create meshgrid for decision boundary
     x_min, x_max = X["Age"].min() - 5, X["Age"].max() + 5
     y_min, y_max = X["BloodPressure"].min() - 10, X["BloodPressure"].max() + 10
-    # x_min, x_max = X_scaled[:, 0].min() - 0.1, X_scaled[:, 0].max() + 0.1
-    # y_min, y_max = X_scaled[:, 1].min() - 0.1, X_scaled[:, 1].max() + 0.1
     xx, yy = np.meshgrid(np.linspace(x_min, x_max, 100), np.linspace(y_min, y_max, 100))
 
     Z = knn.predict(np.c_[xx.ravel(), yy.ravel()])
@@ -194,7 +192,7 @@ with tab3:
     # SVMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 
     features_svm = df2[["Age", "BloodPressure"]]
-    target_svm = df2["Diabetes"]  # 0 = No, 1 = Yes
+    target_svm = df2["Diabetes"]  
 
     # Normalize features for SVM
     scaler_svm = MinMaxScaler()
@@ -204,7 +202,7 @@ with tab3:
     X_train_svm, X_test_svm, y_train_svm, y_test_svm = train_test_split(features_svm_scaled, target_svm, test_size=0.2, random_state=42)
 
     # Train SVM model
-    model_svm = SVC(kernel="linear")  # Linear Kernel for classification
+    model_svm = SVC(kernel="linear")  
     model_svm.fit(X_train_svm, y_train_svm)
     svm_predicions = model_svm.predict(X_test_svm)
 
@@ -273,9 +271,9 @@ with  tab4:
 
     model = tf.keras.models.load_model("cnn_model.keras")
     def preprocess_image(image):
-        image = image.resize((128, 128))  # ปรับขนาดให้ตรงกับที่โมเดลต้องการ
-        image = np.array(image) / 255.0  # Normalize [0,1]
-        image = np.expand_dims(image, axis=0)  # เพิ่มมิติสำหรับ batch
+        image = image.resize((128, 128))  
+        image = np.array(image) / 255.0 
+        image = np.expand_dims(image, axis=0)  
         return image
 
     st.title("🎯 Multitask CNN: Age Prediction")
@@ -292,7 +290,7 @@ with  tab4:
         img_input = preprocess_image(image)
 
         #  ทำนายอายุ
-        age_pred = model.predict(img_input)[0][0]  # ใช้ [0][0] เพราะ output เป็น single value
+        age_pred = model.predict(img_input)[0][0]  
 
         #  แสดงผลลัพธ์
         st.write(f"🔢 **Predicted Age:** {int(age_pred)} years")

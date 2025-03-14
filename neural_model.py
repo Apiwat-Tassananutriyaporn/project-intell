@@ -30,7 +30,7 @@ if len(image_paths) != len(labels):
     print(f"Mismatch in data: {len(image_paths)} images and {len(labels)} labels.")
     exit()
 
-labels = np.array(labels, dtype=np.float32).reshape(-1, 1)  # ✅ reshape เป็น (num_samples, 1)
+labels = np.array(labels, dtype=np.float32).reshape(-1, 1)  
 
 # Split into train and test sets
 X_train, X_test, y_train, y_test = train_test_split(image_paths, labels, test_size=0.2, random_state=42)
@@ -41,7 +41,7 @@ image_size = (128, 128)
 def load_and_preprocess_image(path, label):
     image = tf.io.read_file(path)
     image = tf.image.decode_jpeg(image, channels=3)
-    image = tf.image.resize(image, image_size) / 255.0  # Normalize to [0,1]
+    image = tf.image.resize(image, image_size) / 255.0  
     return image,label 
 
 # Create dataset
